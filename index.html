@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- title -->
+		<title>Численные методы</title>
+
+		<!-- load style -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			.left {
+				float: left;
+				margin-left: 60px;
+			}
+			.right {
+				float: right;
+				margin-right: 60px;
+			}
+			.clear {
+				clear: both;
+			}
+			.reveal table.tic-toe {
+				border-collapse: separate !important;
+			}
+			td {
+				width: 40px;
+				height: 40px;
+				text-align: center !important;
+			}
+			td:nth-child(2) {
+				border-left: 1px solid white;
+				border-right: 1px solid white;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						# Численные методы
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						## Определение
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Численные методы -
+						
+						методы решения математических задач в численном виде
+						Note:
+						
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Система линейных алгебраических уравнений -
+
+						система уравнений, каждое уравнение в которой является линейным - алгебраическим уравнением первой степени.
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример системы линейных алгебраических уравнений второго порядка
+
+						$$
+						\left\{
+						\begin{array}{}
+						x + y = 1 \\
+						10x + 10y = 20
+						\end{array}
+						\right.
+						$$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Решение СЛАУ методом Крамера
+
+						Метод Крамера применяется только к системам линейных уравнений, у которых число уравнений совпадает с числом неизвестных и определитель отличен от нуля.						
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Любая крамеровская система уравнений $n \cdot m$ имеет единственное решение $(x_{1}, x_{2}, ... , x_{n})$, 
+						которое определяется формулами $x_{i} = \frac{\Delta_{i}}{\Delta}$,
+						где $\Delta_{i}$ - определитель матрицы, полученной из основной матрицы $A$ заменой $i$-го столбца на столбец свободных членов системы, 
+						$\Delta$ – определитель основной матрицы.
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$$
+						\left\{
+						\begin{array}{}
+						x-2y = 1 \\
+						3x-4y = 7
+						\end{array}
+						\right.
+						$$
+
+						$$
+						A = 
+						\left(
+						\begin{array}{}
+						1 \;\; -2\\
+						3 \;\; -4
+						\end{array}
+						\right)
+						$$
+
+						$$
+						\Delta = 
+						\left|
+						\begin{array}{}
+						1 \;\; -2\\
+						3 \;\; -4
+						\end{array}
+						\right| = 1 \cdot (-4) - 3\cdot (-2) = -4+6 = 2 \neq 0
+						$$
+
+						
+						Note:
+					</script>
+				</section>				
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Вычислим определитель $\Delta_{x}$, для этого заменим первый столбец в основной матрице на столбец свободных членов 
+						$B = 
+						\begin{pmatrix}
+						1\\
+						7
+						\end{pmatrix}
+						$
+						, получим
+						$$
+						\Delta_{x} = 
+						\left|
+						\begin{array}{}
+						1 \;\; -2\\
+						7 \;\; -4
+						\end{array}
+						\right| = 1 \cdot (-4) - 7\cdot (-2) = -4+14 = 10
+						$$
+					Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Аналогично, заменяя второй столбец основной матрицы на 
+						$
+						B = 
+						\begin{pmatrix}
+						1\\
+						7
+						\end{pmatrix}
+						$
+						, найдем $\Delta_{y}$
+						$$
+						\Delta_{y} = 
+						\left|
+						\begin{array}{}
+						1 \;\;\; 1\\
+						3 \;\;\; 7
+						\end{array}
+						\right| = 1 \cdot 7 - 3\cdot 1 = 7-3 = 4
+						$$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Далее по формуле Крамера находим неизвестные переменные:
+						$$
+						x = \frac{\Delta_{x}}{\Delta} = \frac{10}{2} = 5;
+						$$
+
+						$$
+						y = \frac{\Delta_{y}}{\Delta} = \frac{4}{2} = 2;
+						$$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Решение СЛАУ методом Жордана - Гаусса
+						Метод Жордана - Гаусса - метод, который используется для решения квадратных систем линейных алгебраических уравнений, 
+						нахождения обратной матрицы, нахождения координат вектора в заданном базисе или отыскания ранга матрицы.
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Решение методом Жордана - Гаусса заключается в том, что необходимо представить матрицу $A$ в виде диагональной матрицы, тогда решением системы 
+						будут являеться $(x_{1} = a_{11}, x_{2} = a_{22},..., x_{n} = a_{nn})$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$$
+						\left\{
+						\begin{array}{}
+						2x+4y = 2 \\
+						4x-6y = 4
+						\end{array}
+						\right.
+						$$
+						
+						$$
+						A = 
+						\left(
+						\begin{array}{}
+						2 \;\;\;\;\; 4\\
+						4 \; -6
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						2\\
+						4
+						\end{matrix}
+						\right)
+						=
+						\left(
+						\begin{array}{}
+						1 \;\;\;\;\; 2\\
+						4 \; -6
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						4
+						\end{matrix}
+						\right)
+						=
+						$$
+
+						$$
+						\left(
+						\begin{array}{}
+						1 \;\;\;\;\;\;\; 2\\
+						0 \; -14
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						0
+						\end{matrix}
+						\right)
+						=
+						\left(
+						\begin{array}{}
+						1 \;\;\; 2\\
+						0 \;\;\; 1
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						0
+						\end{matrix}
+						\right)
+						=
+						\left(
+						\begin{array}{}
+						1 \;\;\; 0\\
+						0 \;\;\; 1
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						0
+						\end{matrix}
+						\right)
+						\Rightarrow
+						$$
+
+						$$
+						\Rightarrow
+						x = 1; y = 0
+						$$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						
+						Note:
+					</script>
+				</section>
+			</div>
+		</div>
+
+		<!-- load js -->
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lib.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				
+				// save slide
+				history: true,
+				slideNumber: true,
+				touch: true,
+
+				// show katex error
+				math: {
+					notificationsEnabled: true,
+				},
+
+           menu: {
+                side: 'left', //Расположение меню
+                numbers: true, //Нумерация слайдов
+                markers: true, //Маркер посещения
+                titleSelector: 'h1, h2, h3, h4, h5, h6', //Заголовки, отображаемые в меню
+                useTextContentForMissingTitles: true, //Если заголовка нет, то подставляем первые слова слайда
+                hideMissingTitles: false, //Если заголовка нет, то скрываем слайд из меню
+                transitions: true, //Установить меню анимации
+                openButton: true, //Скрыть кнопку меню
+                keyboard: true, //Открытие меню по кнопке m
+                // themes: [{
+                //     name: 'Black',
+                //     theme: 'css/theme/black.css'
+                // }, {
+                //     name: 'White',
+                //     theme: 'css/theme/white.css'
+                // }, {
+                //     name: 'League',
+                //     theme: 'css/theme/league.css'
+                // }, {
+                //     name: 'Sky',
+                //     theme: 'css/theme/sky.css'
+                // }, {
+                //     name: 'Beige',
+                //     theme: 'css/theme/beige.css'
+                // }, {
+                //     name: 'Simple',
+                //     theme: 'css/theme/simple.css'
+                // }, {
+                //     name: 'Serif',
+                //     theme: 'css/theme/serif.css'
+                // }, {
+                //     name: 'Blood',
+                //     theme: 'css/theme/blood.css'
+                // }, {
+                //     name: 'Night',
+                //     theme: 'css/theme/night.css'
+                // }, {
+                //     name: 'Moon',
+                //     theme: 'css/theme/moon.css'
+                // }, {
+                //     name: 'Solarized',
+                //     theme: 'css/theme/solarized.css'
+                // }],
+            },
+
+				// load dependencies
+				dependencies: [
+					{
+						// tex
+						src: 'plugin/math-katex/math-katex.js', 
+						async: true,
+						callback: () => {
+							// solve problem with katex 
+							let section = document.querySelectorAll('section script');
+								section.forEach( (item, i) => {
+									section[i].innerHTML = section[i].innerHTML
+										.replace(/\\/g,'\\\\')
+										.replace(/_/g,'\\_')
+										.replace(/\{/g,'\\\{')
+										.replace(/\}/g,'\\\}');
+							});
+						},
+					}, { 
+						//markdown
+						src: 'plugin/markdown/marked.js',
+					}, { 
+						src: 'plugin/markdown/markdown.js', 
+						async: true,
+					},{ 
+						//Menu
+						src: 'plugin/menu/menu.js',
+						async: true
+					},{ 
+						//notes
+						src: 'plugin/notes/notes.js', 
+						async: true
+					}, { 
+						// highlight syntax
+						src: 'plugin/highlight/highlight.js', 
+						async: true, 
+						callback: () => {
+							let code = document.querySelectorAll('code');
+							code.forEach ( (item, i) => {
+								code[i].innerHTML = code[i].innerHTML
+									.replace(/\\{/g,'{')
+									.replace(/\\}/g,'}');
+							});
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+			Reveal.configure({
+				keyboard:{
+					68: function(){
+						Reveal.configure({
+							showNotes:(Reveal.getConfig().showNotes ? false: true)
+						});
+					}
+				}
+			});
+
+			//Запускаем программы только после полной загрузки
+			window.onload = () =>  {
+
+			}
+		</script>
+	</body>
+</html>
