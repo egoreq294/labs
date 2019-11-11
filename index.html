@@ -147,7 +147,7 @@
 						\right| = 1 \cdot (-4) - 3\cdot (-2) = -4+6 = 2 \neq 0
 						$$
 
-						
+					
 						Note:
 					</script>
 				</section>				
@@ -170,7 +170,7 @@
 						\end{array}
 						\right| = 1 \cdot (-4) - 7\cdot (-2) = -4+14 = 10
 						$$
-					Note:
+						Note:
 					</script>
 				</section>
 				<section data-markdown data-separator-notes="^Note:">
@@ -317,10 +317,126 @@
 				</section>
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
-						
+						### Решение СЛАУ методом LU разложения
+						заключается в представлении матрицы A в виде произведения двух матриц $A=LU$, где L — нижняя треугольная матрица, а U — верхняя треугольная матрица.
 						Note:
 					</script>
 				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Тогда решение $Ax=b$ упрощается. Имеем представление $LUx=b$. Обозначив $Ux=y$, получим $Ly=b$.
+						Решение СЛАУ сводится к последовательному решению двух систем с треугольными матрицами.
+						Поэтому их решения выписываются явно.
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Сперва находим решение системы $Ly=b$
+
+						$
+						y_{k} = b_{k} - \sum \limits_{j=1}^{k-1} l_{kj}y_{j}
+						$
+						, 
+						$
+						k = 1,2,..., n
+						$
+						Note:
+					</script>
+				</section>				
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Если известны $y_{i}$, можно также легко найти $x_{i}$, как решение системы $Ux=y$
+
+						$
+						x_{k} = \frac{y_{k} - \sum \limits_{j=k+1}^{n} u_{kj}x_{j}}{u_{kk}}
+						$, 
+						$
+						k = n, n-1, ..., 1
+						$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Решение методом обратной матрицы
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$$Ax = b$$
+
+						$
+						A = 
+						\left(
+						\begin{array}{}
+						2 \;\;\; 6\\
+						7 \;\;\; 3
+						\end{array}
+						\right)
+						$, 
+						$
+						B = 
+						\left(
+						\begin{array}{}
+						3\\
+						2
+						\end{array}
+						\right)
+						$, тогда 
+
+						$
+						A^{-1} = 
+						\left(
+						\begin{array}{}
+						\dfrac{-1}{12} \;\;\; \dfrac{1}{6}\\\\
+						\dfrac{7}{36} \;\;\; \dfrac{-1}{18}
+						\end{array}
+						\right) \Rightarrow 
+						$
+						$
+						X = A^{-1}b = 
+						\left(
+						\begin{array}{}
+						\dfrac{-1}{12}\\\\
+						\dfrac{17}{36}
+						\end{array}
+						\right)
+						$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						## Невязка
+						Note:
+					</script>
+				</section>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					### Определение
+					Невязка - ошибка вычислений, погрешность.
+					Note:
+				</script>
+			</section>			
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					Пусть требуется найти такое $X$, что значение функции $f(x) = b$, тогда подставив приближенное значение $x_{0}$ вместо $x$, получаем невязку 
+					$b - f(x_{0})$, а ошибка в этом случае равна $x - x_{0}$
+
+					Если точное решение $x$ неизввестно, то вычисление ошибки невозможно, но может быть определена невязка
+					Note:
+				</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					
+					Note:
+				</script>
+			</section>
 			</div>
 		</div>
 
