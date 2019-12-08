@@ -314,7 +314,7 @@
 						$$
 						Note:
 					</script>
-				</section>
+				</section>				
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
 						### Решение СЛАУ методом LU разложения
@@ -356,6 +356,58 @@
 						$
 						Note:
 					</script>
+				</section>
+				<section>
+					<h3>Решение СЛАУ методом Жордана - Гауса</h3>
+					<label> $x_{11}$
+						<input type="text" value="2" id="x11" style="width: 100px;">
+					</label>
+					<label> $x_{12}$
+						<input type="text" value="3" id="x12" style="width: 100px;">
+					</label>
+					<label> $x_{13}$
+						<input type="text" value="4" id="x13" style="width: 100px;">
+					</label>
+					<label> $a_{1}$
+						<input type="text" value="2" id="a1" style="width: 100px;">
+					</label>
+					<br>
+
+					<label> $x_{21}$
+						<input type="text" value="3" id="x21" style="width: 100px;">
+					</label>
+					<label> $x_{22}$
+						<input type="text" value="4" id="x22" style="width: 100px;">
+					</label>
+					<label> $x_{23}$
+						<input type="text" value="2" id="x23" style="width: 100px;">
+					</label>
+					<label> $a_{2}$
+						<input type="text" value="3" id="a2" style="width: 100px;">
+					</label>
+					<br>
+
+					<label> $x_{31}$
+						<input type="text" value="5" id="x31" style="width: 100px;">
+					</label>
+					<label> $x_{32}$
+						<input type="text" value="3" id="x32" style="width: 100px;">
+					</label>
+					<label> $x_{33}$
+						<input type="text" value="6" id="x33" style="width: 100px;">
+					</label>
+					<label> $a_{3}$
+						<input type="text" value="1" id="a3" style="width: 100px;">
+					</label>
+					<br>
+
+					
+					Решение:
+					<output id="result"></output> <br>					
+
+					<aside class="notes">
+						Программа по поиску скорости и ускорения
+					</aside>
 				</section>
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
@@ -444,6 +496,12 @@
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 		<script src="js/lib.js"></script>
+		<!-- Библиотека для математики -->
+		<script src="lib/js/math.min.js"></script>
+		<!-- Библиотека для математики -->
+		<script src="lib/js/algebrite.bundle-for-browser.js"></script>
+		<!-- Библиотека для рисования графиков -->
+		<script src="lib/js/plotly.min.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -564,8 +622,40 @@
 				}
 			});
 
+			let LU = () => {
+				let x11 = math.parse(document.querySelector('#x11').value);
+				let x12 = math.parse(document.querySelector('#x12').value);
+				let x13 = math.parse(document.querySelector('#x13').value);
+				let x21 = math.parse(document.querySelector('#x21').value);
+				let x22 = math.parse(document.querySelector('#x22').value);
+				let x23 = math.parse(document.querySelector('#x23').value);
+				let x31 = math.parse(document.querySelector('#x31').value);
+				let x32 = math.parse(document.querySelector('#x32').value);
+				let x33 = math.parse(document.querySelector('#x33').value);
+				let a1 = math.parse(document.querySelector('#a1').value);
+				let a2 = math.parse(document.querySelector('#a2').value);
+				let a3 = math.parse(document.querySelector('#a3').value);
+				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
+				const b = [a1,a2,a3];
+				
+				//katex.render(math.inv(A).toTex(), document.querySelector('#result'));
+				document.querySelector('#result').innerHTML = math.inv(A);
+			}
+
 			//Запускаем программы только после полной загрузки
 			window.onload = () =>  {
+				document.querySelector('#x11').onkeyup = LU;
+				document.querySelector('#x12').onkeyup = LU;
+				document.querySelector('#x13').onkeyup = LU;
+				document.querySelector('#x21').onkeyup = LU;
+				document.querySelector('#x22').onkeyup = LU;
+				document.querySelector('#x23').onkeyup = LU;
+				document.querySelector('#x31').onkeyup = LU;
+				document.querySelector('#x32').onkeyup = LU;
+				document.querySelector('#x33').onkeyup = LU;
+				document.querySelector('#a1').onkeyup = LU;
+				document.querySelector('#a2').onkeyup = LU;
+				document.querySelector('#a3').onkeyup = LU;
 
 			}
 		</script>
