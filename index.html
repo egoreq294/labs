@@ -358,60 +358,63 @@
 					</script>
 				</section>
 				<section>
-					<h3>Решение СЛАУ методом Жордана - Гауса</h3>
+					<h3>Решение СЛАУ методом LU - разложения</h3>
 					<label> $x_{11}$
-						<input type="text" value="2" id="x11" style="width: 100px;">
+						<input type="text" value="2" id="x11_1" style="width: 100px;">
 					</label>
 					<label> $x_{12}$
-						<input type="text" value="3" id="x12" style="width: 100px;">
+						<input type="text" value="3" id="x12_1" style="width: 100px;">
 					</label>
 					<label> $x_{13}$
-						<input type="text" value="4" id="x13" style="width: 100px;">
+						<input type="text" value="4" id="x13_1" style="width: 100px;">
 					</label>
 					<label> $a_{1}$
-						<input type="text" value="2" id="a1" style="width: 100px;">
+						<input type="text" value="2" id="a1_1" style="width: 100px;">
 					</label>
 					<br>
 
 					<label> $x_{21}$
-						<input type="text" value="3" id="x21" style="width: 100px;">
+						<input type="text" value="3" id="x21_1" style="width: 100px;">
 					</label>
 					<label> $x_{22}$
-						<input type="text" value="4" id="x22" style="width: 100px;">
+						<input type="text" value="4" id="x22_1" style="width: 100px;">
 					</label>
 					<label> $x_{23}$
-						<input type="text" value="2" id="x23" style="width: 100px;">
+						<input type="text" value="2" id="x23_1" style="width: 100px;">
 					</label>
 					<label> $a_{2}$
-						<input type="text" value="3" id="a2" style="width: 100px;">
+						<input type="text" value="3" id="a2_1" style="width: 100px;">
 					</label>
 					<br>
 
 					<label> $x_{31}$
-						<input type="text" value="5" id="x31" style="width: 100px;">
+						<input type="text" value="5" id="x31_1" style="width: 100px;">
 					</label>
 					<label> $x_{32}$
-						<input type="text" value="3" id="x32" style="width: 100px;">
+						<input type="text" value="3" id="x32_1" style="width: 100px;">
 					</label>
 					<label> $x_{33}$
-						<input type="text" value="6" id="x33" style="width: 100px;">
+						<input type="text" value="6" id="x33_1" style="width: 100px;">
 					</label>
 					<label> $a_{3}$
-						<input type="text" value="1" id="a3" style="width: 100px;">
+						<input type="text" value="1" id="a3_1" style="width: 100px;">
 					</label>
 					<br>
-
+					<label>
+						<input type="button" id="slau_lu" value="Вычислить">
+					</label>
+					<br>
 					
 					Решение:
-					<output id="result"></output> <br>					
-
+					<br>
+					<output id="result"></output>
 					<aside class="notes">
-						Программа по поиску скорости и ускорения
+						Программа по решению СЛАУ методом LU-разложения
 					</aside>
 				</section>
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
-						### Решение методом обратной матрицы
+						### Решение СЛАУ методом обратной матрицы
 						Note:
 					</script>
 				</section>
@@ -459,6 +462,129 @@
 						$
 						Note:
 					</script>
+				</section>
+				<section>
+					<h3>Решение СЛАУ методом обратной матрицы</h3>
+					<label> $x_{11}$
+						<input type="text" value="2" id="x11_2" style="width: 100px;">
+					</label>
+					<label> $x_{12}$
+						<input type="text" value="3" id="x12_2" style="width: 100px;">
+					</label>
+					<label> $x_{13}$
+						<input type="text" value="4" id="x13_2" style="width: 100px;">
+					</label>
+					<label> $a_{1}$
+						<input type="text" value="2" id="a1_2" style="width: 100px;">
+					</label>
+					<br>
+
+					<label> $x_{21}$
+						<input type="text" value="3" id="x21_2" style="width: 100px;">
+					</label>
+					<label> $x_{22}$
+						<input type="text" value="4" id="x22_2" style="width: 100px;">
+					</label>
+					<label> $x_{23}$
+						<input type="text" value="2" id="x23_2" style="width: 100px;">
+					</label>
+					<label> $a_{2}$
+						<input type="text" value="3" id="a2_2" style="width: 100px;">
+					</label>
+					<br>
+
+					<label> $x_{31}$
+						<input type="text" value="5" id="x31_2" style="width: 100px;">
+					</label>
+					<label> $x_{32}$
+						<input type="text" value="3" id="x32_2" style="width: 100px;">
+					</label>
+					<label> $x_{33}$
+						<input type="text" value="6" id="x33_2" style="width: 100px;">
+					</label>
+					<label> $a_{3}$
+						<input type="text" value="1" id="a3_2" style="width: 100px;">
+					</label>
+					<br>
+					<label>
+						<input type="button" id="slau_inv" value="Вычислить">
+					</label>
+					<br>
+					
+					Решение:
+					<br>
+					<output id="result1"></output>
+					<aside class="notes">
+						Программа по решению СЛАУ методом обратной матрицы
+					</aside>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Решение СЛАУ методом прямой подстановки
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Решение СЛАУ методом прямой подстановки заключается в том, что мы выражаем одну переменную через другую и подставляем в другое уравнение.
+						Далее решаем уравнение с одной переменной, а затем находим остальные.
+						Note:
+					</script>
+				</section>
+				<section>
+					<h3>Решение СЛАУ методом обратной матрицы</h3>
+					<label> $x_{11}$
+						<input type="text" value="2" id="x11_3" style="width: 100px;">
+					</label>
+					<label> $x_{12}$
+						<input type="text" value="3" id="x12_3" style="width: 100px;">
+					</label>
+					<label> $x_{13}$
+						<input type="text" value="4" id="x13_3" style="width: 100px;">
+					</label>
+					<label> $a_{1}$
+						<input type="text" value="2" id="a1_3" style="width: 100px;">
+					</label>
+					<br>
+
+					<label> $x_{21}$
+						<input type="text" value="3" id="x21_3" style="width: 100px;">
+					</label>
+					<label> $x_{22}$
+						<input type="text" value="4" id="x22_3" style="width: 100px;">
+					</label>
+					<label> $x_{23}$
+						<input type="text" value="2" id="x23_3" style="width: 100px;">
+					</label>
+					<label> $a_{2}$
+						<input type="text" value="3" id="a2_3" style="width: 100px;">
+					</label>
+					<br>
+
+					<label> $x_{31}$
+						<input type="text" value="5" id="x31_3" style="width: 100px;">
+					</label>
+					<label> $x_{32}$
+						<input type="text" value="3" id="x32_3" style="width: 100px;">
+					</label>
+					<label> $x_{33}$
+						<input type="text" value="6" id="x33_3" style="width: 100px;">
+					</label>
+					<label> $a_{3}$
+						<input type="text" value="1" id="a3_3" style="width: 100px;">
+					</label>
+					<br>
+					<label>
+						<input type="button" id="slau_l" value="Вычислить">
+					</label>
+					<br>
+					
+					Решение:
+					<br>
+					<output id="result2"></output>
+					<aside class="notes">
+						Программа по решению СЛАУ методом прямой подстановки
+					</aside>
 				</section>
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
@@ -623,40 +749,74 @@
 			});
 
 			let LU = () => {
-				let x11 = math.parse(document.querySelector('#x11').value);
-				let x12 = math.parse(document.querySelector('#x12').value);
-				let x13 = math.parse(document.querySelector('#x13').value);
-				let x21 = math.parse(document.querySelector('#x21').value);
-				let x22 = math.parse(document.querySelector('#x22').value);
-				let x23 = math.parse(document.querySelector('#x23').value);
-				let x31 = math.parse(document.querySelector('#x31').value);
-				let x32 = math.parse(document.querySelector('#x32').value);
-				let x33 = math.parse(document.querySelector('#x33').value);
-				let a1 = math.parse(document.querySelector('#a1').value);
-				let a2 = math.parse(document.querySelector('#a2').value);
-				let a3 = math.parse(document.querySelector('#a3').value);
+				let x12 = +document.querySelector('#x12_1').value;
+				let x11 = +document.querySelector('#x11_1').value;
+				let x13 = +document.querySelector('#x13_1').value;
+				let x21 = +document.querySelector('#x21_1').value;
+				let x22 = +document.querySelector('#x22_1').value;
+				let x23 = +document.querySelector('#x23_1').value;
+				let x31 = +document.querySelector('#x31_1').value;
+				let x32 = +document.querySelector('#x32_1').value;
+				let x33 = +document.querySelector('#x33_1').value;
+				let a1 = +document.querySelector('#a1_1').value;
+				let a2 = +document.querySelector('#a2_1').value;
+				let a3 = +document.querySelector('#a3_1').value;
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
-				
+				let x = math.lusolve(A,b);
+				console.log(x);
 				//katex.render(math.inv(A).toTex(), document.querySelector('#result'));
-				document.querySelector('#result').innerHTML = math.inv(A);
+				document.querySelector('#result').innerHTML = '( ' + x + ' )';
+			}
+			let inv = () => {
+				let x11 = +document.querySelector('#x11_2').value;
+				let x12 = +document.querySelector('#x12_2').value;
+				let x13 = +document.querySelector('#x13_2').value;
+				let x21 = +document.querySelector('#x21_2').value;
+				let x22 = +document.querySelector('#x22_2').value;
+				let x23 = +document.querySelector('#x23_2').value;
+				let x31 = +document.querySelector('#x31_2').value;
+				let x33 = +document.querySelector('#x33_2').value;
+				let x32 = +document.querySelector('#x32_2').value;
+				let a1 = +document.querySelector('#a1_2').value;
+				let a2 = +document.querySelector('#a2_2').value;
+				let a3 = +document.querySelector('#a3_2').value;
+				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
+				const b = [a1,a2,a3];
+				let x = math.multiply(math.inv(A), b);
+				document.querySelector('#result1').innerHTML = '( ';
+				x.forEach(element => {
+					document.querySelector('#result1').innerHTML += element;
+				});
+				
+				document.querySelector('#result1').innerHTML += ' )';
+			}
+			let l = () => {
+				let x11 = +document.querySelector('#x11_3').value;
+				let x12 = +document.querySelector('#x12_3').value;
+				let x13 = +document.querySelector('#x13_3').value;
+				let x21 = +document.querySelector('#x21_3').value;
+				let x22 = +document.querySelector('#x22_3').value;
+				let x23 = +document.querySelector('#x23_3').value;
+				let x31 = +document.querySelector('#x31_3').value;
+				let x33 = +document.querySelector('#x33_3').value;
+				let x32 = +document.querySelector('#x32_3').value;
+				let a1 = +document.querySelector('#a1_3').value;
+				let a2 = +document.querySelector('#a2_3').value;
+				let a3 = +document.querySelector('#a3_3').value;
+				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
+				const b = [a1,a2,a3];
+				const r = math.lup(A);
+				let x = math.lsolve(r.L,b);
+				document.querySelector('#result2').innerHTML = '( ' + x + ' )';
+				
 			}
 
 			//Запускаем программы только после полной загрузки
 			window.onload = () =>  {
-				document.querySelector('#x11').onkeyup = LU;
-				document.querySelector('#x12').onkeyup = LU;
-				document.querySelector('#x13').onkeyup = LU;
-				document.querySelector('#x21').onkeyup = LU;
-				document.querySelector('#x22').onkeyup = LU;
-				document.querySelector('#x23').onkeyup = LU;
-				document.querySelector('#x31').onkeyup = LU;
-				document.querySelector('#x32').onkeyup = LU;
-				document.querySelector('#x33').onkeyup = LU;
-				document.querySelector('#a1').onkeyup = LU;
-				document.querySelector('#a2').onkeyup = LU;
-				document.querySelector('#a3').onkeyup = LU;
-
+				document.querySelector('#slau_lu').onmouseup = LU;
+				document.querySelector('#slau_inv').onmouseup = inv;
+				document.querySelector('#slau_l').onmouseup = l;
 			}
 		</script>
 	</body>
