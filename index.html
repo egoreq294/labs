@@ -100,6 +100,112 @@
 				</section>
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
+						### Решение СЛАУ методом Жордана - Гаусса
+						Метод Жордана - Гаусса - метод, который используется для решения квадратных систем линейных алгебраических уравнений, 
+						нахождения обратной матрицы, нахождения координат вектора в заданном базисе или отыскания ранга матрицы.
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						Решение методом Жордана - Гаусса заключается в том, что необходимо представить матрицу $A$ в виде диагональной матрицы, тогда решением системы 
+						будут являеться $(x_{1} = a_{11}, x_{2} = a_{22},..., x_{n} = a_{nn})$
+						Note:
+					</script>
+				</section>
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$$
+						\left\{
+						\begin{array}{}
+						2x+4y = 2 \\
+						4x-6y = 4
+						\end{array}
+						\right.
+						$$
+						
+						$$
+						A = 
+						\left(
+						\begin{array}{}
+						2 \;\;\;\;\; 4\\
+						4 \; -6
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						2\\
+						4
+						\end{matrix}
+						\right)
+						=
+						\left(
+						\begin{array}{}
+						1 \;\;\;\;\; 2\\
+						4 \; -6
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						4
+						\end{matrix}
+						\right)
+						=
+						$$
+
+						$$
+						\left(
+						\begin{array}{}
+						1 \;\;\;\;\;\;\; 2\\
+						0 \; -14
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						0
+						\end{matrix}
+						\right)
+						=
+						\left(
+						\begin{array}{}
+						1 \;\;\; 2\\
+						0 \;\;\; 1
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						0
+						\end{matrix}
+						\right)
+						=
+						\left(
+						\begin{array}{}
+						1 \;\;\; 0\\
+						0 \;\;\; 1
+						\end{array}
+						\right|
+						\left.
+						\begin{matrix}
+						1\\
+						0
+						\end{matrix}
+						\right)
+						\Rightarrow
+						$$
+
+						$$
+						\Rightarrow
+						x = 1; y = 0
+						$$
+						Note:
+					</script>
+				</section>		
+				<section data-markdown data-separator-notes="^Note:">
+					<script type="text/template">
 						### Решение СЛАУ методом Крамера
 
 						Метод Крамера применяется только к системам линейных уравнений, у которых число уравнений совпадает с числом неизвестных и определитель отличен от нуля.						
@@ -209,112 +315,61 @@
 						Note:
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
-					<script type="text/template">
-						### Решение СЛАУ методом Жордана - Гаусса
-						Метод Жордана - Гаусса - метод, который используется для решения квадратных систем линейных алгебраических уравнений, 
-						нахождения обратной матрицы, нахождения координат вектора в заданном базисе или отыскания ранга матрицы.
-						Note:
-					</script>
-				</section>
-				<section data-markdown data-separator-notes="^Note:">
-					<script type="text/template">
-						Решение методом Жордана - Гаусса заключается в том, что необходимо представить матрицу $A$ в виде диагональной матрицы, тогда решением системы 
-						будут являеться $(x_{1} = a_{11}, x_{2} = a_{22},..., x_{n} = a_{nn})$
-						Note:
-					</script>
-				</section>
-				<section data-markdown data-separator-notes="^Note:">
-					<script type="text/template">
-						### Пример
-						$$
-						\left\{
-						\begin{array}{}
-						2x+4y = 2 \\
-						4x-6y = 4
-						\end{array}
-						\right.
-						$$
-						
-						$$
-						A = 
-						\left(
-						\begin{array}{}
-						2 \;\;\;\;\; 4\\
-						4 \; -6
-						\end{array}
-						\right|
-						\left.
-						\begin{matrix}
-						2\\
-						4
-						\end{matrix}
-						\right)
-						=
-						\left(
-						\begin{array}{}
-						1 \;\;\;\;\; 2\\
-						4 \; -6
-						\end{array}
-						\right|
-						\left.
-						\begin{matrix}
-						1\\
-						4
-						\end{matrix}
-						\right)
-						=
-						$$
+				<section>
+					<h3>Решение СЛАУ методом Крамера</h3>
+					<label> $x_{11}$
+						<input type="text" value="2" id="x11_3" style="width: 100px;">
+					</label>
+					<label> $x_{12}$
+						<input type="text" value="3" id="x12_3" style="width: 100px;">
+					</label>
+					<label> $x_{13}$
+						<input type="text" value="4" id="x13_3" style="width: 100px;">
+					</label>
+					<label> $a_{1}$
+						<input type="text" value="2" id="a1_3" style="width: 100px;">
+					</label>
+					<br>
 
-						$$
-						\left(
-						\begin{array}{}
-						1 \;\;\;\;\;\;\; 2\\
-						0 \; -14
-						\end{array}
-						\right|
-						\left.
-						\begin{matrix}
-						1\\
-						0
-						\end{matrix}
-						\right)
-						=
-						\left(
-						\begin{array}{}
-						1 \;\;\; 2\\
-						0 \;\;\; 1
-						\end{array}
-						\right|
-						\left.
-						\begin{matrix}
-						1\\
-						0
-						\end{matrix}
-						\right)
-						=
-						\left(
-						\begin{array}{}
-						1 \;\;\; 0\\
-						0 \;\;\; 1
-						\end{array}
-						\right|
-						\left.
-						\begin{matrix}
-						1\\
-						0
-						\end{matrix}
-						\right)
-						\Rightarrow
-						$$
+					<label> $x_{21}$
+						<input type="text" value="3" id="x21_3" style="width: 100px;">
+					</label>
+					<label> $x_{22}$
+						<input type="text" value="4" id="x22_3" style="width: 100px;">
+					</label>
+					<label> $x_{23}$
+						<input type="text" value="2" id="x23_3" style="width: 100px;">
+					</label>
+					<label> $a_{2}$
+						<input type="text" value="3" id="a2_3" style="width: 100px;">
+					</label>
+					<br>
 
-						$$
-						\Rightarrow
-						x = 1; y = 0
-						$$
-						Note:
-					</script>
-				</section>				
+					<label> $x_{31}$
+						<input type="text" value="5" id="x31_3" style="width: 100px;">
+					</label>
+					<label> $x_{32}$
+						<input type="text" value="3" id="x32_3" style="width: 100px;">
+					</label>
+					<label> $x_{33}$
+						<input type="text" value="6" id="x33_3" style="width: 100px;">
+					</label>
+					<label> $a_{3}$
+						<input type="text" value="1" id="a3_3" style="width: 100px;">
+					</label>
+					<br>
+					<label>
+						<input type="button" id="slau_l" value="Вычислить">
+					</label>
+					<br>
+					
+					Решение:
+					<br>
+					<output id="result2"></output>
+					<aside class="notes">
+						Программа по решению СЛАУ методом Крамера
+					</aside>
+				</section>						
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
 						### Решение СЛАУ методом LU разложения
@@ -517,75 +572,7 @@
 					<aside class="notes">
 						Программа по решению СЛАУ методом обратной матрицы
 					</aside>
-				</section>
-				<section data-markdown data-separator-notes="^Note:">
-					<script type="text/template">
-						### Решение СЛАУ методом прямой подстановки
-						Note:
-					</script>
-				</section>
-				<section data-markdown data-separator-notes="^Note:">
-					<script type="text/template">
-						Решение СЛАУ методом прямой подстановки заключается в том, что мы выражаем одну переменную через другую и подставляем в другое уравнение.
-						Далее решаем уравнение с одной переменной, а затем находим остальные.
-						Note:
-					</script>
-				</section>
-				<section>
-					<h3>Решение СЛАУ методом обратной матрицы</h3>
-					<label> $x_{11}$
-						<input type="text" value="2" id="x11_3" style="width: 100px;">
-					</label>
-					<label> $x_{12}$
-						<input type="text" value="3" id="x12_3" style="width: 100px;">
-					</label>
-					<label> $x_{13}$
-						<input type="text" value="4" id="x13_3" style="width: 100px;">
-					</label>
-					<label> $a_{1}$
-						<input type="text" value="2" id="a1_3" style="width: 100px;">
-					</label>
-					<br>
-
-					<label> $x_{21}$
-						<input type="text" value="3" id="x21_3" style="width: 100px;">
-					</label>
-					<label> $x_{22}$
-						<input type="text" value="4" id="x22_3" style="width: 100px;">
-					</label>
-					<label> $x_{23}$
-						<input type="text" value="2" id="x23_3" style="width: 100px;">
-					</label>
-					<label> $a_{2}$
-						<input type="text" value="3" id="a2_3" style="width: 100px;">
-					</label>
-					<br>
-
-					<label> $x_{31}$
-						<input type="text" value="5" id="x31_3" style="width: 100px;">
-					</label>
-					<label> $x_{32}$
-						<input type="text" value="3" id="x32_3" style="width: 100px;">
-					</label>
-					<label> $x_{33}$
-						<input type="text" value="6" id="x33_3" style="width: 100px;">
-					</label>
-					<label> $a_{3}$
-						<input type="text" value="1" id="a3_3" style="width: 100px;">
-					</label>
-					<br>
-					<label>
-						<input type="button" id="slau_l" value="Вычислить">
-					</label>
-					<br>
-					
-					Решение:
-					<br>
-					<output id="result2"></output>
-					<aside class="notes">
-						Программа по решению СЛАУ методом прямой подстановки
-					</aside>
-				</section>
+				</section>				
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
 						## Невязка
@@ -607,6 +594,149 @@
 
 					Если точное решение $x$ неизввестно, то вычисление ошибки невозможно, но может быть определена невязка
 					Note:
+				</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					Исходный код
+					------------
+
+					Note:
+					Исходный код программ
+				</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					### Решение СЛАУ методом Крамера
+					
+					```
+					let l = () => {
+						let x11 = +document.querySelector('#x11_3').value;
+						let x12 = +document.querySelector('#x12_3').value;
+						let x13 = +document.querySelector('#x13_3').value;
+						let x21 = +document.querySelector('#x21_3').value;
+						let x22 = +document.querySelector('#x22_3').value;
+						let x23 = +document.querySelector('#x23_3').value;
+						let x31 = +document.querySelector('#x31_3').value;
+						let x33 = +document.querySelector('#x33_3').value;
+						let x32 = +document.querySelector('#x32_3').value;
+						let a1 = +document.querySelector('#a1_3').value;
+						let a2 = +document.querySelector('#a2_3').value;
+						let a3 = +document.querySelector('#a3_3').value;
+						const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
+						const b = [a1,a2,a3];
+						const x = [];
+						const A1 = [[],[],[]];
+						let delta = math.det(A);
+						let deltai;
+						for(let i = 0; i<3; i++)
+						{	
+							for(let i1 = 0; i1<3; i1++)
+								for(let j1 = 0; j1<3; j1++)
+								{
+									A1[i1][j1] = A[i1][j1];
+								}
+							for(let j = 0; j<3; j++)
+							{
+								A1[j][i] = b[j];
+							}
+							deltai = math.det(A1);
+							x[i] = deltai/delta;
+						}
+		
+						for(let i = 0; i<3; i++)
+						{
+							x[i] = x[i].toFixed(3);
+						}
+						document.querySelector('#result2').innerHTML = '( ';
+						for(let i = 0; i < A.length-1; i++)
+						{
+							document.querySelector('#result2').innerHTML += (x[i]+', ');
+						}
+						document.querySelector('#result2').innerHTML +=x[2] + ' )';
+					}	
+					```
+
+					Note:
+					Исходный код программы для решения системы методом Крамера
+				</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					### Решение СЛАУ методом LU - разложения					
+					```
+					let LU = () => {
+						let x12 = +document.querySelector('#x12_1').value;
+						let x11 = +document.querySelector('#x11_1').value;
+						let x13 = +document.querySelector('#x13_1').value;
+						let x21 = +document.querySelector('#x21_1').value;
+						let x22 = +document.querySelector('#x22_1').value;
+						let x23 = +document.querySelector('#x23_1').value;
+						let x31 = +document.querySelector('#x31_1').value;
+						let x32 = +document.querySelector('#x32_1').value;
+						let x33 = +document.querySelector('#x33_1').value;
+						let a1 = +document.querySelector('#a1_1').value;
+						let a2 = +document.querySelector('#a2_1').value;
+						let a3 = +document.querySelector('#a3_1').value;
+						const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
+						const b = [a1,a2,a3];
+						const x = Array.from(math.lusolve(A,b));
+						for(let i = 0; i<3; i++)
+						{
+							x[i] = Number(x[i]).toFixed(3);
+						}
+						document.querySelector('#result').innerHTML = '( ';
+						for(let i = 0; i < A.length-1; i++)
+						{
+							document.querySelector('#result').innerHTML += (x[i]+', ');
+						}
+						document.querySelector('#result').innerHTML +=x[2] + ' )';
+					}
+					
+					```
+
+					Note:
+					Исходный код программы для решения системы методом LU - разложения
+				</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					### Решение СЛАУ методом обратной матрицы
+					
+					```
+					let inv = () => {
+						let x11 = +document.querySelector('#x11_2').value;
+						let x12 = +document.querySelector('#x12_2').value;
+						let x13 = +document.querySelector('#x13_2').value;
+						let x21 = +document.querySelector('#x21_2').value;
+						let x22 = +document.querySelector('#x22_2').value;
+						let x23 = +document.querySelector('#x23_2').value;
+						let x31 = +document.querySelector('#x31_2').value;
+						let x33 = +document.querySelector('#x33_2').value;
+						let x32 = +document.querySelector('#x32_2').value;
+						let a1 = +document.querySelector('#a1_2').value;
+						let a2 = +document.querySelector('#a2_2').value;
+						let a3 = +document.querySelector('#a3_2').value;
+						const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
+						const b = [a1,a2,a3];
+						let x = math.multiply(math.inv(A), b);
+						for(let i = 0; i<3; i++)
+						{
+							x[i] = x[i].toFixed(3);
+						}
+						document.querySelector('#result1').innerHTML = '( ';
+						for(let i = 0; i < A.length-1; i++)
+						{
+							document.querySelector('#result1').innerHTML += (x[i]+', ');
+						}
+						document.querySelector('#result1').innerHTML +=x[2] + ' )';
+					}
+
+					```
+
+					Note:
+					Исходный код программы для решения системы методом обратной матрицы
 				</script>
 			</section>
 			<section data-markdown data-separator-notes="^Note:">
@@ -763,10 +893,17 @@
 				let a3 = +document.querySelector('#a3_1').value;
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
-				let x = math.lusolve(A,b);
-				console.log(x);
-				//katex.render(math.inv(A).toTex(), document.querySelector('#result'));
-				document.querySelector('#result').innerHTML = '( ' + x + ' )';
+				const x = Array.from(math.lusolve(A,b));
+				for(let i = 0; i<3; i++)
+				{
+					x[i] = Number(x[i]).toFixed(3);
+				}
+				document.querySelector('#result').innerHTML = '( ';
+				for(let i = 0; i < A.length-1; i++)
+				{
+					document.querySelector('#result').innerHTML += (x[i]+', ');
+				}
+				document.querySelector('#result').innerHTML +=x[2] + ' )';
 			}
 			let inv = () => {
 				let x11 = +document.querySelector('#x11_2').value;
@@ -784,12 +921,16 @@
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
 				let x = math.multiply(math.inv(A), b);
+				for(let i = 0; i<3; i++)
+				{
+					x[i] = x[i].toFixed(3);
+				}
 				document.querySelector('#result1').innerHTML = '( ';
-				x.forEach(element => {
-					document.querySelector('#result1').innerHTML += element;
-				});
-				
-				document.querySelector('#result1').innerHTML += ' )';
+				for(let i = 0; i < A.length-1; i++)
+				{
+					document.querySelector('#result1').innerHTML += (x[i]+', ');
+				}
+				document.querySelector('#result1').innerHTML +=x[2] + ' )';
 			}
 			let l = () => {
 				let x11 = +document.querySelector('#x11_3').value;
@@ -806,14 +947,49 @@
 				let a3 = +document.querySelector('#a3_3').value;
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
-				const r = math.lup(A);
-				let x = math.lsolve(r.L,b);
-				document.querySelector('#result2').innerHTML = '( ' + x + ' )';
-				
+				const x = [];
+				const A1 = [[],[],[]];
+				let delta = math.det(A);
+				let deltai;
+				for(let i = 0; i<3; i++)
+				{	
+					for(let i1 = 0; i1<3; i1++)
+						for(let j1 = 0; j1<3; j1++)
+						{
+							A1[i1][j1] = A[i1][j1];
+						}
+					for(let j = 0; j<3; j++)
+					{
+						A1[j][i] = b[j];
+					}
+					deltai = math.det(A1);
+					x[i] = deltai/delta;
+				}
+
+				for(let i = 0; i<3; i++)
+				{
+					x[i] = x[i].toFixed(3);
+				}
+				document.querySelector('#result2').innerHTML = '( ';
+				for(let i = 0; i < A.length-1; i++)
+				{
+					document.querySelector('#result2').innerHTML += (x[i]+', ');
+				}
+				document.querySelector('#result2').innerHTML +=x[2] + ' )';
 			}
 
 			//Запускаем программы только после полной загрузки
 			window.onload = () =>  {
+				//Делаем слайды инклюзивными, заменив заголовок
+				$('h3').each((i, j) => {$(i).html(`
+					<span class="offscreen"></span>
+						${$(i).text()}
+					<span class="offscreen">.</span>
+				`)});
+				$('aside').after(`<span class="offscreen">
+				</span>`);
+
+				
 				document.querySelector('#slau_lu').onmouseup = LU;
 				document.querySelector('#slau_inv').onmouseup = inv;
 				document.querySelector('#slau_l').onmouseup = l;
