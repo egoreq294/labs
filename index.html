@@ -136,7 +136,7 @@
 						нахождения обратной матрицы, нахождения координат вектора в заданном базисе или отыскания ранга матрицы.
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Метод Жордана - Гаусса">
 					<script type="text/template">
 						Решение методом Жордана - Гаусса заключается в том, что необходимо представить матрицу $A$ в виде диагональной матрицы, тогда решением системы 
 						будут являеться $(x_{1} = a_{11}, x_{2} = a_{22},..., x_{n} = a_{nn})$
@@ -145,7 +145,7 @@
 						будут являеться (x1 = a11, x2 = a22,..., xn = ann)
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Пример решения методом Жоржана - Гаусса">
 					<script type="text/template">
 						### Пример
 						$$
@@ -247,7 +247,7 @@
 						Метод Крамера применяется только к системам линейных уравнений, у которых число уравнений совпадает с числом неизвестных и определитель отличен от нуля.
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Метод Крамера">
 					<script type="text/template">
 						Любая крамеровская система уравнений $n \cdot m$ имеет единственное решение $(x_{1}, x_{2}, ... , x_{n})$, 
 						которое определяется формулами $x_{i} = \frac{\Delta_{i}}{\Delta}$,
@@ -294,7 +294,7 @@
 						Пример решения слау методом Крамера(1)
 					</script>
 				</section>				
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Пример метода Крамера(2)">
 					<script type="text/template">
 						Вычислим определитель $\Delta_{x}$, для этого заменим первый столбец в основной матрице на столбец свободных членов 
 						$B = 
@@ -317,7 +317,7 @@
 						Пример решения слау методом Крамера(2)
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Пример метода Крамера(3)">
 					<script type="text/template">
 						Аналогично, заменяя второй столбец основной матрицы на 
 						$
@@ -341,7 +341,7 @@
 						Пример решения слау методом Крамера(3)
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Пример метода Крамера(4)">
 					<script type="text/template">
 						Далее по формуле Крамера находим неизвестные переменные:
 						$$
@@ -419,7 +419,7 @@
 						заключается в представлении матрицы A в виде произведения двух матриц $A=LU$, где L — нижняя треугольная матрица, а U — верхняя треугольная матрица.
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Метод LU-разложения">
 					<script type="text/template">
 						Тогда решение $Ax=b$ упрощается. Имеем представление $LUx=b$. Обозначив $Ux=y$, получим $Ly=b$.
 						Решение СЛАУ сводится к последовательному решению двух систем с треугольными матрицами.
@@ -428,7 +428,7 @@
 						Описывается, как решать слау методом LU-разложения
 					</script>
 				</section>
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Метод LU-разложения(2)">
 					<script type="text/template">
 						Сперва находим решение системы $Ly=b$
 
@@ -443,7 +443,7 @@
 						Пример решения слау методом LU-разложения(1)
 					</script>
 				</section>				
-				<section data-markdown data-separator-notes="^Note:">
+				<section data-markdown data-separator-notes="^Note:" data-menu-title="Метод LU-разложения(3)">
 					<script type="text/template">
 						Если известны $y_{i}$, можно также легко найти $x_{i}$, как решение системы $Ux=y$
 
@@ -636,14 +636,19 @@
 					Невязка - ошибка вычислений, погрешность.
 				</script>
 			</section>			
-			<section data-markdown data-separator-notes="^Note:">
+			<section data-markdown data-separator-notes="^Note:" data-menu-title="Вычисление невязки">
 				<script type="text/template">
 					Пусть требуется найти такое $X$, что значение функции $f(x) = b$, тогда подставив приближенное значение $x_{0}$ вместо $x$, получаем невязку 
 					$b - f(x_{0})$, а ошибка в этом случае равна $x - x_{0}$
-
+					
+					Вычисление невязки
+				</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:" data-menu-title="Невязка">
+				<script type="text/template">
 					Если точное решение $x$ неизввестно, то вычисление ошибки невозможно, но может быть определена невязка
 					Note:
-					Вычисление невязки
+					Если точное решение $x$ неизввестно, то вычисление ошибки невозможно, но может быть определена невязка
 				</script>
 			</section>
 			<section data-markdown data-separator-notes="^Note:">
@@ -811,6 +816,8 @@
 			</section>
 			<section data-markdown data-separator-notes="^Note:" data-menu-title="Заключительный слайд">
 					<script type="text/template">
+						Спасибо за внимание
+						Note:
 						Спасибо за внимание
 					</script>
 					<span class="offscreen">
