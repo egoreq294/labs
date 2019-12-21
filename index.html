@@ -12,6 +12,10 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
+		<!--Fonts-->
+		<link rel="stylesheet" 
+			href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -72,6 +76,17 @@
 	</head>
 	<body>
 		<div class="reveal">
+			<!-- Кнопка для включения и отключения субтитр -->
+			<div class="chalkboard-button" id="toggle-chalkboard" 
+				style="position: fixed; z-index: 30; font-size: 22px;
+				left: 60px; bottom: 31px;" >
+				<a href="#" id="noteswitch" title="Включение/отключение
+					заметок к слайду">
+					<i class="fa fa-sticky-note" aria-label="
+					Заметки к слайду"></i>
+				</a>
+			</div>
+
 			<div class="slides">
 				<section data-markdown data-separator-notes="^Note:">
 					<script type="text/template">
@@ -946,18 +961,11 @@
 						}
 					}
 				]
-			});
-			Reveal.configure({
-				keyboard:{
-					68: function(){
-						Reveal.configure({
-							showNotes:(Reveal.getConfig().showNotes ? false: true)
-						});
-					}
-				}
-			});
-
+			});			
+			
+			//Метод LU-разложения
 			let LU = () => {
+				//Парсим
 				let x12 = +document.querySelector('#x12_1').value;
 				let x11 = +document.querySelector('#x11_1').value;
 				let x13 = +document.querySelector('#x13_1').value;
@@ -970,13 +978,17 @@
 				let a1 = +document.querySelector('#a1_1').value;
 				let a2 = +document.querySelector('#a2_1').value;
 				let a3 = +document.querySelector('#a3_1').value;
+				//Создаем матрицу и вектор
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
+				//Решаем и преобразовываем решение в массив
 				const x = Array.from(math.lusolve(A,b));
+				//Сокращаем до 3-ех знаков
 				for(let i = 0; i<3; i++)
 				{
 					x[i] = Number(x[i]).toFixed(3);
 				}
+				//Выводим красивый ответ
 				document.querySelector('#result').innerHTML = '( ';
 				for(let i = 0; i < A.length-1; i++)
 				{
@@ -984,7 +996,9 @@
 				}
 				document.querySelector('#result').innerHTML +=x[2] + ' )';
 			}
+			//Метод обратной матрицы
 			let inv = () => {
+				//Парсим
 				let x11 = +document.querySelector('#x11_2').value;
 				let x12 = +document.querySelector('#x12_2').value;
 				let x13 = +document.querySelector('#x13_2').value;
@@ -997,13 +1011,17 @@
 				let a1 = +document.querySelector('#a1_2').value;
 				let a2 = +document.querySelector('#a2_2').value;
 				let a3 = +document.querySelector('#a3_2').value;
+				//Создаем вектор и матрицу
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
+				//Решаем встроеной функцией
 				let x = math.multiply(math.inv(A), b);
+				//Сокращаем до 3-ех знаков
 				for(let i = 0; i<3; i++)
 				{
 					x[i] = x[i].toFixed(3);
 				}
+				//Делаем красивый ответ
 				document.querySelector('#result1').innerHTML = '( ';
 				for(let i = 0; i < A.length-1; i++)
 				{
@@ -1011,7 +1029,9 @@
 				}
 				document.querySelector('#result1').innerHTML +=x[2] + ' )';
 			}
+			//Метод Крамера
 			let l = () => {
+				//Парсим
 				let x11 = +document.querySelector('#x11_3').value;
 				let x12 = +document.querySelector('#x12_3').value;
 				let x13 = +document.querySelector('#x13_3').value;
@@ -1024,12 +1044,15 @@
 				let a1 = +document.querySelector('#a1_3').value;
 				let a2 = +document.querySelector('#a2_3').value;
 				let a3 = +document.querySelector('#a3_3').value;
+				//Создаем матрицу и вектор
 				const A = [[x11,x12,x13],[x21,x22,x23],[x31,x32,x33]];
 				const b = [a1,a2,a3];
 				const x = [];
 				const A1 = [[],[],[]];
+				//Находим определитель матрицы А
 				let delta = math.det(A);
 				let deltai;
+				//Переставляем столбцы и вектор местами
 				for(let i = 0; i<3; i++)
 				{	
 					for(let i1 = 0; i1<3; i1++)
@@ -1041,14 +1064,16 @@
 					{
 						A1[j][i] = b[j];
 					}
+					//Считаем новые определители и находим точку решения
 					deltai = math.det(A1);
 					x[i] = deltai/delta;
 				}
-
+				//Сокращаем до 3ех знаков после запятой
 				for(let i = 0; i<3; i++)
 				{
 					x[i] = x[i].toFixed(3);
 				}
+				//Делаем красивый ответ
 				document.querySelector('#result2').innerHTML = '( ';
 				for(let i = 0; i < A.length-1; i++)
 				{
@@ -1056,9 +1081,31 @@
 				}
 				document.querySelector('#result2').innerHTML +=x[2] + ' )';
 			}
+			let showNodes = () => {
+				Reveal.configure({
+					//Навесим событие на клавишу D
+					//Покажим заметки
+					showNotes: (
+						Reveal.getConfig().showNotes ? 
+							false: true
+						)
+				});
+				return false;
+			}
 
 			//Запускаем программы только после полной загрузки
 			window.onload = () =>  {
+
+
+				//Открываем заметки или по кнопке или по клавише D
+				document.querySelector('#noteswitch').onclick = showNodes;
+				Reveal.configure({
+					keyboard: {
+						68: showNodes
+					}
+				});
+
+
 				//Делаем слайды инклюзивными, заменив заголовок
 				$('h3').each((i, j) => {$(i).html(`
 					<span class="offscreen"></span>
@@ -1068,7 +1115,7 @@
 				$('aside').after(`<span class="offscreen">
 				</span>`);
 
-				
+				//Функции выполняются, когда отжимается ЛКМ
 				document.querySelector('#slau_lu').onmouseup = LU;
 				document.querySelector('#slau_inv').onmouseup = inv;
 				document.querySelector('#slau_l').onmouseup = l;
